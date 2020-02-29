@@ -23,8 +23,7 @@ All the functions returns a HTML with the provided data.
 ````javascript
 const Render = require('htmldatarender')
 let htmlMD = Render.renderMarkdown(MD_INDEX)
-// Example with express
-res.send(htmlMD)
+res.send(htmlMD) // Example with express
 ````
 
 > Providing the filepath
@@ -33,11 +32,11 @@ const Render = require('htmldatarender')
 
 // Sync mode
 let htmlMD = Render.renderMarkDownFile(MD_PATH)
-res.send(htmlMD)
+res.send(htmlMD) // Example with express
 
 // Async mode
 Render.renderMarkDownFile(MD_PATH, function(htmlMD){
-    res.send(htmlMD)
+    res.send(htmlMD) // Example with express
 })
 ````
 
@@ -45,10 +44,21 @@ Render.renderMarkDownFile(MD_PATH, function(htmlMD){
 
 > Providing the Object
 ````javascript
-
+const Render = require('htmldatarender')
+let jsonHTML = Render.renderJSON({ a: "a", 1: false })
+res.send(jsonHTML) // Example with express
 ````
 
 > Providing the json path
 ````javascript
+const Render = require('htmldatarender')
 
+// Sync mode
+let htmlMD = Render.renderJSONFile(JSON_PATH)
+res.send(htmlMD) // Example with express
+
+// Async mode
+Render.renderJSONFile(JSON_PATH, function(html){
+    res.send(html) // Example with express
+})
 ````

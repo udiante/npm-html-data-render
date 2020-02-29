@@ -31,7 +31,7 @@ function testJSON() {
     writeFile('fileJSONString.html', Render.renderJSON({ a: "a", 1: false }))
     writeFile('serialFileJSONLoad.html', Render.renderJSONFile(JSON_PATH))
 
-    Render.renderMarkDownFile(JSON_PATH, function (html) {
+    Render.renderJSONFile(JSON_PATH, function (html) {
         writeFile('asyncFileJSONLoad.html', html)
     })
 }
