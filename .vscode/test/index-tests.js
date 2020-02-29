@@ -2,4 +2,4 @@
 const INDEX = require('../../index')
 
 // Execute all test files
-const AlexaText = require('./Example-TestFile')
+const test = require('./Example-TestFile')
