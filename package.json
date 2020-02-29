@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/udiante/htmlDataRender.git"
+    "url": "git+https://github.com/udiante/npm-html-data-render.git"
   },
   "author": "Alejandro Quibus",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/udiante/htmldatarender/issues"
+    "url": "https://github.com/udiante/npm-html-data-render/issues"
   },
-  "homepage": "https://github.com/udiante/htmldatarender#readme",
+  "homepage": "https://github.com/udiante/npm-html-data-render#readme",
   "dependencies": {
     "highlight.js": "^9.18.1",
     "marked": "^0.8.0"
