@@ -6,6 +6,19 @@ Package to provide a out of the box html from diferent data.
 
 All the functions returns a HTML with the provided data. 
 
+## Dependency import
+
+- Manual NPM Configuration (just add this line into the package.json)
+```javascript
+"htmlDataRender": "git://github.com:udiante/npm-html-data-render#semver:^1.0"
+```
+
+- Local development
+```javascript
+"htmlDataRender": "file:./../npm-html-data-render"
+```
+
+
 ## Render Objects (json)
 
 > Providing the Object
