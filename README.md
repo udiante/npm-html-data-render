@@ -1,10 +1,23 @@
-# PACKAGE_NAME
+# HTML Data Render Package
 
-PACKAGE_DESCRIPTION
+Package to provide a out of the box html from diferent data.
 
 # Usage
 
-Instrucciones uso plantilla
-1. Reemplazar las ocurrencias de `PACKAGE_NAME` por el nombre del Package a crear
-2. Completar las descripciones (reemplazar las ocurrencias de `PACKAGE_DESCRIPTION`)
-3. Desarrollar
+All the functions returns a HTML with the provided data. 
+
+## Render Objects (json)
+
+> Providing the Object
+````javascript
+
+````
+
+> Providing the json path
+
+## Render Markdown file
+
+> Providing the filepath
+````javascript
+
+````
