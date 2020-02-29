@@ -1,0 +1,23 @@
+{
+  "name": "PACKAGE_NAME",
+  "version": "1.0.0",
+  "description": "PACKAGE_DESCRIPTION",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udiante/PACKAGE_NAME.git"
+  },
+  "author": "Alejandro Quibus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/udiante/PACKAGE_NAME/issues"
+  },
+  "homepage": "https://github.com/udiante/PACKAGE_NAME#readme",
+  "dependencies": {
+
+  }
+}
