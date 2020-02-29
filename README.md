@@ -14,8 +14,16 @@ All the functions returns a HTML with the provided data.
 ````
 
 > Providing the json path
+````javascript
+
+````
 
 ## Render Markdown file
+
+> Providing the MarkDown data
+````javascript
+
+````
 
 > Providing the filepath
 ````javascript
