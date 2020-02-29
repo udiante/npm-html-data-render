@@ -10,14 +10,36 @@ All the functions returns a HTML with the provided data.
 
 - Manual NPM Configuration (just add this line into the package.json)
 ```javascript
-"htmlDataRender": "git://github.com:udiante/npm-html-data-render#semver:^1.0"
+"htmldatarender": "git://github.com:udiante/npm-html-data-render#semver:^1.0"
 ```
 
 - Local development
 ```javascript
-"htmlDataRender": "file:./../npm-html-data-render"
+"htmldatarender": "file:./../npm-html-data-render"
 ```
+## Render Markdown files
 
+> Providing the MarkDown data
+````javascript
+const Render = require('htmldatarender')
+let htmlMD = Render.renderMarkdown(MD_INDEX)
+// Example with express
+res.send(htmlMD)
+````
+
+> Providing the filepath
+````javascript
+const Render = require('htmldatarender')
+
+// Sync mode
+let htmlMD = Render.renderMarkDownFile(MD_PATH)
+res.send(htmlMD)
+
+// Async mode
+Render.renderMarkDownFile(MD_PATH, function(htmlMD){
+    res.send(htmlMD)
+})
+````
 
 ## Render Objects (json)
 
@@ -27,18 +49,6 @@ All the functions returns a HTML with the provided data.
 ````
 
 > Providing the json path
-````javascript
-
-````
-
-## Render Markdown file
-
-> Providing the MarkDown data
-````javascript
-
-````
-
-> Providing the filepath
 ````javascript
 
 ````
