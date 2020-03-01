@@ -22,7 +22,7 @@ All the functions returns a HTML with the provided data.
 > Providing the MarkDown data
 ````javascript
 const Render = require('htmldatarender')
-let htmlMD = Render.renderMarkdown(MD_INDEX)
+const htmlMD = Render.renderMarkdown(MD_INDEX)
 res.send(htmlMD) // Example with express
 ````
 
