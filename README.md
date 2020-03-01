@@ -31,7 +31,7 @@ res.send(htmlMD) // Example with express
 const Render = require('htmldatarender')
 
 // Sync mode
-let htmlMD = Render.renderMarkDownFile(MD_PATH)
+const htmlMD = Render.renderMarkDownFile(MD_PATH)
 res.send(htmlMD) // Example with express
 
 // Async mode
@@ -45,7 +45,7 @@ Render.renderMarkDownFile(MD_PATH, function(htmlMD){
 > Providing the Object
 ````javascript
 const Render = require('htmldatarender')
-let jsonHTML = Render.renderJSON({ a: "a", 1: false })
+const jsonHTML = Render.renderJSON({ a: "a", 1: false })
 res.send(jsonHTML) // Example with express
 ````
 
