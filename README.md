@@ -1,6 +1,6 @@
 # HTML Data Render Package
 
-Package to provide a out of the box html from diferent data.
+Package to provide out of the box html rendering from diferent data (MarkDown or JSON).
 
 # Usage
 
