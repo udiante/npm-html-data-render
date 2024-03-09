@@ -19,6 +19,6 @@
   "homepage": "https://github.com/udiante/npm-html-data-render#readme",
   "dependencies": {
     "highlight.js": "^10.4.1",
-    "marked": "^0.8.0"
+    "marked": "^4.0.10"
   }
 }
