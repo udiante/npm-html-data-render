@@ -1,6 +1,6 @@
 // Dependencies
 const fs = require('fs');
-const marked = require('marked')
+const { marked } = require('marked')
 
 const MD_INDEX = fs.readFileSync(__dirname + '/html/md.html', 'utf8').toString()
 
@@ -19,8 +19,6 @@ marked.setOptions({
     smartypants: true,
     xhtml: false
 });
-
-var renderer = new marked.Renderer();
 
 module.exports.renderMarkDownFile = function (filePath, completion) {
     if (completion) {
@@ -44,6 +42,6 @@ module.exports.renderMarkDownFile = function (filePath, completion) {
 
 
 module.exports.renderMarkdown = function (mdData) {
-    const markdownHTML = marked(mdData, renderer)
+    const markdownHTML = marked.parse(mdData)
     return MD_INDEX.replace("REPLACE_MD", markdownHTML)
 }

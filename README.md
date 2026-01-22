@@ -2,6 +2,12 @@
 
 Package to provide out of the box html rendering from diferent data (MarkDown or JSON).
 
+# Changelog
+
+### 1.1.0
+
+Update dependencies
+
 # Usage
 
 All the functions returns a HTML with the provided data. 
