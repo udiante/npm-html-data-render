@@ -1,47 +1,64 @@
 // Dependencies
 const fs = require('fs');
-const marked = require('marked')
+const path = require('path');
 
-const MD_INDEX = fs.readFileSync(__dirname + '/html/md.html', 'utf8').toString()
+const MD_INDEX = fs
+    .readFileSync(path.join(__dirname, '/html/md.html'), 'utf8')
+    .toString();
 
-marked.setOptions({
-    renderer: new marked.Renderer(),
-    highlight: function (code, language) {
-        const hljs = require('highlight.js');
-        const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
-        return hljs.highlight(validLanguage, code).value;
-    },
-    pedantic: false,
-    gfm: true,
-    breaks: false,
-    sanitize: false,
-    smartLists: true,
-    smartypants: true,
-    xhtml: false
-});
+let markedInstance = null;
 
-module.exports.renderMarkDownFile = function (filePath, completion) {
-    if (completion) {
-        // Async read
-        var self = this
-        fs.readFile(filePath, 'utf8', function (error, data) {
-            if (error || !data) {
-                completion()
-                return
-            }
-            const dataString = data.toString()
-            completion(self.renderMarkdown(dataString))
-        })
-    }
-    else {
-        // Sync read
-        const mdString = fs.readFileSync(filePath, 'utf8').toString()
-        return this.renderMarkdown(mdString)
-    }
+/**
+ * Lazy-load marked (ESM) and configure it once
+ */
+async function getMarked() {
+    if (markedInstance) return markedInstance;
+
+    const { marked } = await import('marked');
+    const hljs = await import('highlight.js');
+
+    marked.setOptions({
+        renderer: new marked.Renderer(),
+        highlight(code, language) {
+            const validLanguage = hljs.default.getLanguage(language)
+                ? language
+                : 'plaintext';
+            return hljs.default.highlight(code, { language: validLanguage }).value;
+        },
+        pedantic: false,
+        gfm: true,
+        breaks: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: true,
+        xhtml: false
+    });
+
+    markedInstance = marked;
+    return marked;
 }
 
+/**
+ * Render markdown string
+ */
+module.exports.renderMarkdown = async function (mdData) {
+    const marked = await getMarked();
+    const markdownHTML = marked.parse(mdData);
+    return MD_INDEX.replace('REPLACE_MD', markdownHTML);
+};
 
-module.exports.renderMarkdown = function (mdData) {
-    const markdownHTML = marked.parse(mdData)
-    return MD_INDEX.replace("REPLACE_MD", markdownHTML)
-}
+/**
+ * Render markdown file (async only, callback optional)
+ */
+module.exports.renderMarkDownFile = async function (filePath, completion) {
+    try {
+        const data = await fs.promises.readFile(filePath, 'utf8');
+        const html = await this.renderMarkdown(data);
+
+        if (completion) completion(html);
+        return html;
+    } catch (err) {
+        if (completion) completion();
+        return null;
+    }
+};

@@ -4,9 +4,9 @@ Package to provide out of the box html rendering from diferent data (MarkDown or
 
 # Changelog
 
-### 1.1.0
+### 1.1.3
 
-Update dependencies
+Update dependencies + async loading
 
 # Usage
 
