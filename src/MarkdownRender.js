@@ -1,6 +1,6 @@
 // Dependencies
 const fs = require('fs');
-const { marked } = require('marked')
+const marked = require('marked')
 
 const MD_INDEX = fs.readFileSync(__dirname + '/html/md.html', 'utf8').toString()
 
